@@ -14,7 +14,7 @@ def buildImage() {
 
 def deployApp() {
     echo 'deploying the application...'
-    def dockerCmd = 'docker run -p 8080:8082 -d aliaymanmohammed/demo-app:jma-1.0 '
+    def dockerCmd = 'docker run -p 8082:8080 -d aliaymanmohammed/demo-app:jma-1.0 '
     sshagent(['ubuntu-server-key']) {
         sh "ssh -o StrictHostKeyChecking=no ubuntu@54.93.120.75 ${dockerCmd}"
     }
